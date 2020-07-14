@@ -4,6 +4,7 @@
 # printf "${b}my bold text${n}"
 export b=$(tput bold)   # bold text
 export n=$(tput sgr0)   # normal text
+export yellow="\033[1;33;40m"   # yellow text
 
 change_passwd() {
   user=$1
