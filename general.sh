@@ -24,7 +24,7 @@ EOF
 check_status() {
   if [[ "$?" != "0" ]]; then
     printf "There are some errors. Do you want to continue? ( y/n )... " && read answer
-    if [[ "y" != "$answer" && "yes" != "$answer" ]]; then
+    if [[ "n" = "$answer" || "N" = "$answer" || "no" != "$answer" ]]; then
       echo "exit"
       exit 1
     fi
