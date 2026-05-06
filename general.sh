@@ -21,8 +21,10 @@ EOF
 # printf "Operation_1 is in progress... "
 # <your_operations>
 # check_status
+# Optional: check_status "$?" after a block when errexit is enabled.
 check_status() {
-  if [[ "$?" != "0" ]]; then
+  local _st="${1:-$?}"
+  if [[ "$_st" != "0" ]]; then
     printf "There are some errors. Do you want to continue? ( y/n )... " && read answer
     if [[ "n" == "$answer" || "N" == "$answer" || "no" == "$answer" ]]; then
       echo "exit"
